@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
+//https://social.msdn.microsoft.com/Forums/vstudio/en-US/830e0068-725e-4066-8987-0489b7f1f433/how-to-get-the-position-of-a-control-of-separate-program?forum=csharpgeneral
 
 namespace IntuneSimple
 {
