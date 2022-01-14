@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Globalization;
+using System.IO;
 
 namespace IntuneSimple
 {
@@ -23,6 +25,12 @@ namespace IntuneSimple
             var credential = new Credential();
             foreach (string line in System.IO.File.ReadLines(intuneFile))
             {
+                if (line.StartsWith("Your admin account will be"))
+                {
+                    var datestring = line.Substring(38, 20);
+                    credential.ExpiredDate = DateTime.Parse(datestring, CultureInfo.InvariantCulture);
+                }
+
                 if (line.StartsWith(userLabel))
                 {
                     credential.UserName = line.Replace(userLabel, string.Empty).Trim();
@@ -39,5 +47,6 @@ namespace IntuneSimple
 
         public string UserName { get; set; }
         public string Password { get; set; }
+        public DateTime ExpiredDate { get; set; }
     }
 }

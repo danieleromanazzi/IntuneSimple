@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IntuneSimple"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowState="Normal"
+        WindowStyle="None"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        SizeToContent="Height"
+        Title="MainWindow" Width="400">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="Button">
+
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.Background>
+            <SolidColorBrush Color="#FF1F1F1F"/>
+        </Grid.Background>
+
+        <StackPanel x:Name="credentialPanel">
+            <StackPanel Orientation="Horizontal" Margin="15,15,0,0">
+                <TextBlock Text="Username: " />
+                <TextBlock x:Name="username" />
+                <Button Click="Button_Click">Copy</Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="15,15,0,15">
+                <TextBlock Text="Password: " />
+                <TextBlock x:Name="password" />
+                <Button Click="Button_Click_1">Copy</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock x:Name="message" />
     </Grid>
 </Window>
