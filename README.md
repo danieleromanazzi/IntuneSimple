@@ -9,6 +9,10 @@ Questo tool all'avvio si posiziona nella trayiconbar e ogni 5 minuti aggiorna la
 
 All'apertura dell'UAC, posiziona subito sotto, le credenziali con la possibilità di copiarle agevolmente.
 
+![Esempio](Image20220119103415.png)
+
+
+![Esempio di Balloon in scadenza](2022-01-14 17_18_13-.png)
 
 Esempio di contenuto del file c:\intune\localadm.txt
 
