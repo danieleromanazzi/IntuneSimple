@@ -12,7 +12,7 @@ All'apertura dell'UAC, posiziona subito sotto, le credenziali con la possibilit√
 ![Esempio](Image20220119103415.png)
 
 
-![Esempio di Balloon in scadenza](2022-01-14 17_18_13-.png)
+![Esempio di Balloon in scadenza](2022-01-14 17_18_13.png)
 
 Esempio di contenuto del file c:\intune\localadm.txt
 
