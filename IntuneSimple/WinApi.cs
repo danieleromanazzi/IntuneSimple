@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace IntuneSimple
 {
-    public class Api
+    public class WinApi
     {
         [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
         static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
@@ -14,9 +14,9 @@ namespace IntuneSimple
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        public static extern bool GetWindowRect(IntPtr hwnd, ref Rect rectangle);
+        static extern bool GetWindowRect(IntPtr hwnd, ref RectApi rectangle);
 
-        public struct Rect
+        public struct RectApi
         {
             public int Left { get; set; }
             public int Top { get; set; }
@@ -26,29 +26,26 @@ namespace IntuneSimple
 
         public static async Task<bool> Opened()
         {
-            var task = Task.Run<bool>(() =>
+            return await Task.Run<bool>(() =>
             {
-                return FindWindowByCaption(IntPtr.Zero, "Controllo dell'account utente") != IntPtr.Zero;
+                return FindWindowByCaption(IntPtr.Zero, Settings.UACViewTitle) != IntPtr.Zero;
             });
-
-            return await task;
         }
 
-        public static async Task<Rect> RectCredentialView()
+        public static async Task<RectApi> GetUACRect()
         {
-            var task = Task.Run<Rect>(() =>
+            return await Task.Run(() =>
             {
-                var ptr = FindWindowByCaption(IntPtr.Zero, "Controllo dell'account utente");
+                RectApi rect = new RectApi();
+
+                var ptr = FindWindowByCaption(IntPtr.Zero, Settings.UACViewTitle);
 
                 SetForegroundWindow(ptr);
 
-                Rect rect = new Rect();
                 GetWindowRect(ptr, ref rect);
 
                 return rect;
             });
-
-            return await task;
         }
     }
 }

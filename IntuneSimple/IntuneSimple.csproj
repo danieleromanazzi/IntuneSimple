@@ -62,18 +62,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Scheduler.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\CredentialView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Api.cs" />
+    <Compile Include="Services\CredentialService.cs" />
+    <Compile Include="Services\NotifyService.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="WinApi.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Credential.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="Models\Credential.cs" />
+    <Compile Include="Views\CredentialView.xaml.cs">
+      <DependentUpon>CredentialView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
